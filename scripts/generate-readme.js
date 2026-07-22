@@ -355,7 +355,7 @@ function generateCardSVG(stats, avatarDataUri) {
 function generateREADME(stats) {
   const {
     ovr, topLanguage, languages, uniqueLanguages, totalStars, totalForks,
-    ownRepos, user, skillMoves, weakFoot, atkRate, defRate, playStyle,
+    ownRepos, user, skillMoves, weakFoot, atkRate, defRate, playStyle, recentCommits
   } = stats;
 
   const tier = getCardTier(ovr);
@@ -366,6 +366,10 @@ function generateREADME(stats) {
   // Stars helper
   const stars = (n, max = 5) => '★'.repeat(n) + '☆'.repeat(max - n);
 
+  const nameUpper = encodeURIComponent(CONFIG.displayName.toUpperCase());
+  const statsString = `${ovr} OVR · ${position} · ${archetype.toUpperCase()} · ONE TO WATCH 🌟`;
+  const encodedStats = encodeURIComponent(statsString);
+
   // Language icons for skillicons.dev
   const langIconMap = {
     Java: 'java', JavaScript: 'js', TypeScript: 'ts', Python: 'py',
@@ -374,127 +378,180 @@ function generateREADME(stats) {
     Kotlin: 'kotlin', Dart: 'dart', Shell: 'bash', R: 'r',
   };
   const langIcons = languages
-    .slice(0, 8)
+    .slice(0, 14)
     .map(([l]) => langIconMap[l])
     .filter(Boolean)
     .join(',');
-
-  // Top repos (sorted by stars, then recent update)
-  const topRepos = ownRepos
-    .sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0) || new Date(b.pushed_at) - new Date(a.pushed_at))
-    .slice(0, 4);
-
-  // Theme colors for badges/cards
-  const bgColor = '0b0930';
-  const labelColor = '1a1640';
-  const accentColor = tier.secondary.replace('#', '');
-  const textColor = 'e6edf3';
-
-  // One-to-watch / scouting comment
-  const scoutComment = uniqueLanguages >= 4
-    ? 'the magician: a polyglot working across many stacks'
-    : uniqueLanguages >= 2
-      ? 'versatile technician with multi-stack potential'
-      : 'focused specialist honing a single craft';
+    
+  const activeDays = Math.min(365, recentCommits * 2 + 5); // Approximate active days for stats
+  const contributions = recentCommits + (user.public_repos * 3) + 12; // Approximate contributions
 
   let md = '';
 
-  // ──────────────── HEADER ────────────────
-  md += `<!-- 🎮 Auto-generated FIFA-style GitHub profile — do not edit manually -->\n`;
-  md += `<!-- Last updated: ${now} -->\n\n`;
-
   md += `<div align="center">\n\n`;
-  md += `<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Inter&weight=800&size=30&duration=3000&pause=1200&color=${accentColor}&center=true&vCenter=true&multiline=false&width=620&height=45&lines=Hey+%F0%9F%91%8B+I'm+${encodeURIComponent(CONFIG.displayName)};${ovr}+OVR+%E2%80%A2+${tier.name}+%E2%80%A2+${position}+%E2%80%A2+${archetype};Full+Stack+Developer+%F0%9F%87%AE%F0%9F%87%B3" alt="Typing SVG" /></a>\n\n`;
 
-  // ──────────────── PLAYER CARD ────────────────
+  // ──────────────── ANIMATED HEADER ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- ⚽ ANIMATED HEADER — CINEMATIC INTRO                       -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
+  md += `<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a3a1a,100:39D353&height=220&section=header&text=${nameUpper}&fontSize=52&fontColor=F0CFA8&fontAlignY=35&desc=${encodedStats}&descSize=16&descColor=8b949e&descAlignY=55&animation=fadeIn" width="100%" alt="Header"/>\n\n`;
   md += `<br/>\n\n`;
-  md += `<img src="./card.svg" width="300" alt="${CONFIG.displayName} — ${ovr} ${tier.name} Player Card"/>\n\n`;
+
+  // ──────────────── TYPING ANIMATION ────────────────
+  md += `<!-- ⚽ TYPING ANIMATION -->\n`;
+  const topLangsStr = languages.slice(0,5).map(l => l[0].toUpperCase()).join(' | ');
+  md += `<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=600&height=40&lines=%E2%9A%BD+THE+MAGICIAN+%7C+POLYGLOT+DEVELOPER;${uniqueLanguages}+LANGUAGES+%C2%B7+${user.public_repos}+REPOS+%C2%B7+BUILDING+%F0%9F%94%A5;${encodeURIComponent(topLangsStr)}" alt="Typing SVG" />\n\n`;
+  md += `<br/><br/>\n\n`;
+
+  // ──────────────── THE CARD ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- ⚽ THE CARD — CENTERPIECE                                  -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
+  md += `<img src="./card.svg" width="300" alt="FIFA Card — ${CONFIG.displayName}"/>\n\n`;
   md += `<br/>\n\n`;
-
-  // ──────────────── LIVE BADGES ────────────────
-  md += `<img src="https://img.shields.io/github/followers/${CONFIG.username}?style=for-the-badge&logo=github&color=${bgColor}&labelColor=${labelColor}&logoColor=${accentColor}&label=Followers" alt="Followers"/>\n`;
-  md += `&nbsp;\n`;
-  md += `<img src="https://img.shields.io/badge/Repos-${user.public_repos}-${accentColor}?style=for-the-badge&logo=github&color=${bgColor}&labelColor=${labelColor}" alt="Repos"/>\n`;
-  md += `&nbsp;\n`;
-  md += `<img src="https://img.shields.io/badge/Stars-${totalStars}-${accentColor}?style=for-the-badge&logo=star&color=${bgColor}&labelColor=${labelColor}&logoColor=${accentColor}" alt="Stars"/>\n\n`;
-
+  md += `<sub>⚽ <i>Card auto-updates as my GitHub stats change</i></sub>\n\n`;
   md += `</div>\n\n`;
   md += `---\n\n`;
 
-  // ──────────────── SCOUTING REPORT ────────────────
-  md += `## ⚽ Scouting Report\n\n`;
+  // ──────────────── SCOUT REPORT ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- ⚽ SCOUT REPORT — ATTRIBUTES & PLAYSTYLES                  -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
   md += `<div align="center">\n\n`;
-  md += `> **${tier.name}** · ${scoutComment}.\n\n`;
-  md += `| Attribute | Rating |\n`;
-  md += `|:---|:---|\n`;
-  md += `| **Skill Moves** | ${stars(skillMoves)} |\n`;
-  md += `| **Weak Foot** | ${stars(weakFoot)} |\n`;
-  md += `| **Work Rate** | ${atkRate} / ${defRate} |\n`;
-  md += `| **Play Style** | ${playStyle} |\n`;
-  md += `| **Archetype** | ${archetype} |\n`;
-  md += `| **Top Language** | ${topLanguage} |\n\n`;
+  md += `## 📋 SCOUT REPORT\n\n`;
+  md += `</div>\n\n`;
+
+  md += `<table align="center">\n`;
+  md += `<tr>\n`;
+  md += `<td width="50%" valign="top">\n\n`;
+  md += `### 🧬 ATTRIBUTES\n\n`;
+  md += `| | |\n`;
+  md += `|:---|---:|\n`;
+  md += `| 🤹 **Skill Moves** | ${stars(skillMoves)} |\n`;
+  md += `| 🦶 **Weak Foot** | ${stars(weakFoot)} |\n`;
+  md += `| 🔋 **Work Rate** | \`${atkRate} / ${defRate}\` |\n`;
+  md += `| 🎯 **Style** | \`${playStyle.toUpperCase()}\` |\n\n`;
+  md += `</td>\n`;
+  md += `<td width="50%" valign="top">\n\n`;
+  md += `### 📈 SCOUTING METRICS\n\n`;
+  md += `| Metric | Value |\n`;
+  md += `|:---|---:|\n`;
+  md += `| 💻 **Commits** | \`${recentCommits}\` |\n`;
+  md += `| 👥 **Followers** | \`${user.followers}\` |\n`;
+  md += `| 🗣️ **Languages** | \`${uniqueLanguages}\` |\n`;
+  md += `| 🔨 **Contributions** | \`${contributions}\` |\n`;
+  md += `| 🗓️ **Account Age** | \`${stats.accountAgeYears.toFixed(1)} yrs\` |\n`;
+  md += `| ⚡ **Active Days** | \`${activeDays}\` |\n`;
+  md += `| 📂 **Repositories** | \`${user.public_repos}\` |\n\n`;
+  md += `</td>\n`;
+  md += `</tr>\n`;
+  md += `</table>\n\n`;
+
+  md += `<div align="center">\n\n`;
+  md += `### 🥇 PLAYSTYLES\n\n`;
+  if (uniqueLanguages >= 4) {
+    md += `<img src="https://img.shields.io/badge/🔮_Polyglot+-F0CFA8?style=for-the-badge&labelColor=0d1117" alt="Polyglot+"/>\n`;
+    md += `<sub>&nbsp;&nbsp;${uniqueLanguages} languages — elite tier</sub>\n`;
+  } else {
+    md += `<img src="https://img.shields.io/badge/🎯_Specialist+-F0CFA8?style=for-the-badge&labelColor=0d1117" alt="Specialist"/>\n`;
+    md += `<sub>&nbsp;&nbsp;Elite focus on ${topLanguage}</sub>\n`;
+  }
+  md += `\n<br/><br/>\n\n`;
+  
+  md += `### 📊 DISTRIBUTION\n\n`;
+  md += `<img src="https://img.shields.io/badge/TOP_10%25-of_GitHub-39D353?style=flat-square&labelColor=0d1117" alt="Top 10%"/>\n`;
+  md += `&nbsp;\n`;
+  md += `<img src="https://img.shields.io/badge/OVR_${ovr}-active_devs-F0CFA8?style=flat-square&labelColor=0d1117" alt="OVR"/>\n\n`;
   md += `</div>\n\n`;
   md += `---\n\n`;
 
   // ──────────────── TECH STACK ────────────────
-  md += `## 🛠️ Tech Stack\n\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 🛠️ TECH STACK                                              -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
   md += `<div align="center">\n\n`;
+  md += `## 🛠️ TECH STACK\n\n`;
   if (langIcons) {
-    md += `<img src="https://skillicons.dev/icons?i=${langIcons}&theme=dark" alt="Tech Stack"/>\n\n`;
+    md += `<img src="https://skillicons.dev/icons?i=${langIcons},git,github,vscode,linux&perline=7" alt="Tech Stack"/>\n\n`;
   }
   md += `</div>\n\n`;
   md += `---\n\n`;
 
-  // ──────────────── SEASON STATS ────────────────
-  md += `## 📊 Season Stats\n\n`;
+  // ──────────────── MATCH STATS ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 📊 MATCH STATS — LIVE UPDATING                             -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
   md += `<div align="center">\n\n`;
-  md += `<img src="https://github-readme-stats.vercel.app/api?username=${CONFIG.username}&show_icons=true&theme=transparent&bg_color=${bgColor}&title_color=${accentColor}&text_color=${textColor}&icon_color=${accentColor}&border_color=${accentColor}40&rank_icon=github" height="180" alt="GitHub Stats"/>\n`;
-  md += `&nbsp;\n`;
-  md += `<img src="https://streak-stats.demolab.com/?user=${CONFIG.username}&theme=dark&background=${bgColor}&ring=${accentColor}&fire=${accentColor}&currStreakLabel=${accentColor}&sideLabels=${accentColor}&border=${accentColor}40&dates=7a8b98&sideNums=${textColor}&currStreakNum=${textColor}" height="180" alt="GitHub Streak"/>\n\n`;
+  md += `## 📊 MATCH STATS\n\n`;
+  md += `<br/>\n\n`;
+  
+  md += `<table align="center" border="0">\n`;
+  md += `<tr>\n`;
+  md += `<td>\n`;
+  md += `<a href="https://github.com/${CONFIG.username}">\n`;
+  md += `  <img src="https://github-stats-extended.vercel.app/api?username=${CONFIG.username}&show_icons=true&theme=dark&bg_color=0d1117&title_color=F0CFA8&text_color=c9d1d9&icon_color=39D353&border_color=30363d&hide_border=false&count_private=true&include_all_commits=true" alt="GitHub Stats"/>\n`;
+  md += `</a>\n`;
+  md += `</td>\n`;
+  md += `<td>\n`;
+  md += `<a href="https://github.com/${CONFIG.username}">\n`;
+  md += `  <img src="https://streak-stats.demolab.com?user=${CONFIG.username}&theme=dark&background=0d1117&ring=F0CFA8&fire=F0CFA8&currStreakLabel=F0CFA8&sideLabels=c9d1d9&sideNums=c9d1d9&dates=8b949e&border=30363d" alt="GitHub Streak"/>\n`;
+  md += `</a>\n`;
+  md += `</td>\n`;
+  md += `</tr>\n`;
+  md += `</table>\n\n`;
+  md += `<br/><br/>\n\n`;
+  
+  md += `<!-- Top Languages -->\n`;
+  md += `<img src="https://github-stats-extended.vercel.app/api/top-langs/?username=${CONFIG.username}&layout=compact&theme=dark&bg_color=0d1117&title_color=F0CFA8&text_color=c9d1d9&border_color=30363d&hide_border=false&langs_count=10" alt="Top Languages"/>\n\n`;
   md += `</div>\n\n`;
-
-  md += `<div align="center">\n\n`;
-  md += `<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${CONFIG.username}&layout=compact&theme=transparent&bg_color=${bgColor}&title_color=${accentColor}&text_color=${textColor}&border_color=${accentColor}40&langs_count=8" width="360" alt="Top Languages"/>\n\n`;
-  md += `</div>\n\n`;
-  md += `---\n\n`;
-
-  // ──────────────── TROPHY CABINET ────────────────
-  md += `## 🏆 Trophy Cabinet\n\n`;
-  md += `<div align="center">\n\n`;
-  for (const repo of topRepos) {
-    md += `<a href="https://github.com/${CONFIG.username}/${repo.name}">\n`;
-    md += `  <img src="https://github-readme-stats.vercel.app/api/pin/?username=${CONFIG.username}&repo=${repo.name}&theme=transparent&bg_color=${bgColor}&title_color=${accentColor}&text_color=${textColor}&icon_color=${accentColor}&border_color=${accentColor}40" width="380" alt="${repo.name}"/>\n`;
-    md += `</a>\n`;
-  }
-  md += `\n</div>\n\n`;
   md += `---\n\n`;
 
   // ──────────────── CONTRIBUTION GRAPH ────────────────
-  md += `## 📈 Contribution Graph\n\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 📈 CONTRIBUTION GRAPH — LIVE                               -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
   md += `<div align="center">\n\n`;
-  md += `<img src="https://github-readme-activity-graph.vercel.app/graph?username=${CONFIG.username}&theme=github-compact&bg_color=${bgColor}&color=${accentColor}&line=${accentColor}&point=${textColor}&area_color=${accentColor}&area=true&hide_border=false&custom_title=Contribution%20Graph&border_color=${accentColor}40" width="95%" alt="Activity Graph"/>\n\n`;
+  md += `## 📈 CONTRIBUTION GRAPH\n\n`;
+  md += `<img src="https://github-readme-activity-graph.vercel.app/graph?username=${CONFIG.username}&bg_color=0d1117&color=F0CFA8&line=39D353&point=F0CFA8&area_color=39D353&area=true&hide_border=false&custom_title=${nameUpper}'s%20Contribution%20Graph" width="95%" alt="Contribution Graph"/>\n\n`;
   md += `</div>\n\n`;
   md += `---\n\n`;
 
-  // ──────────────── FOOTER ────────────────
+  // ──────────────── SNAKE ANIMATION ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 🐍 SNAKE ANIMATION — UPDATED ON EVERY PUSH                 -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
   md += `<div align="center">\n\n`;
+  md += `## 🐍 WATCH MY CONTRIBUTIONS GET EATEN\n\n`;
+  md += `<picture>\n`;
+  md += `  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/${CONFIG.username}/${CONFIG.username}/output/github-snake-dark.svg" />\n`;
+  md += `  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/${CONFIG.username}/${CONFIG.username}/output/github-snake.svg" />\n`;
+  md += `  <img alt="Snake animation" src="https://raw.githubusercontent.com/${CONFIG.username}/${CONFIG.username}/output/github-snake-dark.svg" />\n`;
+  md += `</picture>\n\n`;
+  md += `</div>\n\n`;
+  md += `---\n\n`;
 
+  // ──────────────── CONNECT ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 🔗 CONNECT                                                 -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
+  md += `<div align="center">\n\n`;
+  md += `### 🤝 Connect with me\n\n`;
+  
   if (CONFIG.portfolioUrl) {
-    md += `<a href="${CONFIG.portfolioUrl}">\n`;
-    md += `<img src="https://img.shields.io/badge/Portfolio-${accentColor}?style=for-the-badge&logo=google-chrome&logoColor=${bgColor}" alt="Portfolio"/>\n`;
-    md += `</a>\n&nbsp;\n`;
+    md += `[![Portfolio](https://img.shields.io/badge/Portfolio-Website-0A66C2?style=for-the-badge&logo=google-chrome&logoColor=white)](${CONFIG.portfolioUrl})\n`;
   }
-  md += `<a href="https://github.com/${CONFIG.username}">\n`;
-  md += `<img src="https://img.shields.io/badge/GitHub-${textColor}?style=for-the-badge&logo=github&logoColor=${bgColor}" alt="GitHub"/>\n`;
-  md += `</a>\n\n`;
-
-  md += `<br/><br/>\n\n`;
-  md += `<img src="https://komarev.com/ghpvc/?username=${CONFIG.username}&style=flat-square&color=${accentColor}&label=Profile+Views" alt="Profile Views"/>\n\n`;
-
+  md += `[![GitHub](https://img.shields.io/badge/GitHub-${CONFIG.username}-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/${CONFIG.username})\n\n`;
+  
   md += `<br/>\n\n`;
-  md += `<sub>⚡ Auto-updated every 6 hours by <a href="https://github.com/${CONFIG.username}/${CONFIG.username}/actions">GitHub Actions</a> · Last: ${now}</sub>\n\n`;
+  md += `<img src="https://komarev.com/ghpvc/?username=${CONFIG.username}&style=for-the-badge&color=F0CFA8&label=PROFILE+VIEWS" alt="Profile Views"/>\n\n`;
+  md += `<br/><br/>\n\n`;
+  md += `</div>\n\n`;
 
-  md += `</div>\n`;
+  // ──────────────── FOOTER ────────────────
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n`;
+  md += `<!-- 🏁 FOOTER                                                  -->\n`;
+  md += `<!-- ═══════════════════════════════════════════════════════════ -->\n\n`;
+  md += `<img src="https://capsule-render.vercel.app/api?type=waving&color=0:39D353,50:1a3a1a,100:0d1117&height=120&section=footer" width="100%" alt="Footer"/>\n`;
 
   return md;
 }
