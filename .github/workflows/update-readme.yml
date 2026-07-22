@@ -1,9 +1,9 @@
 name: 🎮 Update Profile README
 
 on:
-  # Run every 6 hours
+  # Run every 30 minutes
   schedule:
-    - cron: '0 */6 * * *'
+    - cron: '*/30 * * * *'
   # Run on push to main branch
   push:
     branches: [main]

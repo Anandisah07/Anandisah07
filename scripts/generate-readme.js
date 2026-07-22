@@ -542,6 +542,7 @@ function generateREADME(stats) {
   if (CONFIG.portfolioUrl) {
     md += `[![Portfolio](https://img.shields.io/badge/Portfolio-Website-0A66C2?style=for-the-badge&logo=google-chrome&logoColor=white)](${CONFIG.portfolioUrl})\n`;
   }
+  md += `[![Email](https://img.shields.io/badge/Email-anandisah1307%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:anandisah1307@gmail.com)\n`;
   md += `[![GitHub](https://img.shields.io/badge/GitHub-${CONFIG.username}-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/${CONFIG.username})\n\n`;
   
   md += `<br/>\n\n`;

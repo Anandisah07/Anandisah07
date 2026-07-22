@@ -179,6 +179,7 @@
 ### 🤝 Connect with me
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-Website-0A66C2?style=for-the-badge&logo=google-chrome&logoColor=white)](https://anandisah07.github.io/Portfolio/)
+[![Email](https://img.shields.io/badge/Email-anandisah1307%40gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:anandisah1307@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-Anandisah07-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Anandisah07)
 
 <br/>
