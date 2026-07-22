@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="460" viewBox="0 0 320 460">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="320" y2="460" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#c8903c"/>
+      <stop offset="100%" stop-color="#9a6a22"/>
+    </linearGradient>
+    <linearGradient id="sh" x1="0" y1="0" x2="280" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.16)"/>
+      <stop offset="45%" stop-color="rgba(255,255,255,0.03)"/>
+      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+    </linearGradient>
+    <radialGradient id="ag" cx="185" cy="130" r="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(205,127,50,0.35)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <radialGradient id="og" cx="48" cy="75" r="38" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="rgba(205,127,50,0.35)"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </radialGradient>
+    <clipPath id="ac"><ellipse cx="188" cy="125" rx="72" ry="82"/></clipPath>
+    <clipPath id="cc"><rect x="6" y="6" width="308" height="448" rx="14"/></clipPath>
+    <style>
+      @keyframes shimmer{0%,100%{opacity:.12}50%{opacity:.32}}
+      @keyframes pulse{0%,100%{opacity:.6}50%{opacity:1}}
+      .shim{animation:shimmer 5s ease-in-out infinite}
+      .pul{animation:pulse 3s ease-in-out infinite}
+      .vb{font-family:'Segoe UI','Helvetica Neue',Arial,sans-serif}
+      .vn{font-family:'Segoe UI Condensed','Arial Narrow','Roboto Condensed',sans-serif}
+    </style>
+  </defs>
+
+  <!-- shadow -->
+  <rect x="10" y="12" width="306" height="446" rx="18" fill="rgba(0,0,0,0.35)" opacity=".6"/>
+
+  <!-- card body -->
+  <rect x="6" y="6" width="308" height="448" rx="16" fill="url(#bg)" stroke="#cd7f32" stroke-width="1.5"/>
+
+  <!-- shine -->
+  <rect x="6" y="6" width="308" height="448" rx="16" fill="url(#sh)" class="shim"/>
+
+  <!-- inner border -->
+  <rect x="18" y="18" width="284" height="424" rx="11" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width=".5"/>
+
+  <!-- avatar glow -->
+  <ellipse cx="188" cy="130" rx="95" ry="100" fill="url(#ag)" opacity=".7"/>
+
+  <!-- avatar -->
+  <g clip-path="url(#ac)">
+    <image href="data:image/png;base64,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" x="104" y="32" width="168" height="192" preserveAspectRatio="xMidYMid slice"/>
+  </g>
+  <!-- avatar fade -->
+  <ellipse cx="188" cy="125" rx="72" ry="82" fill="none" stroke="url(#bg)" stroke-width="8" opacity=".25"/>
+
+  <!-- ── OVR panel ── -->
+  <ellipse cx="48" cy="75" rx="34" ry="34" fill="url(#og)" opacity=".5"/>
+  <text x="48" y="90" class="vb" font-size="50" font-weight="900" fill="#3a2717" text-anchor="middle">59</text>
+  <text x="48" y="113" class="vn" font-size="19" font-weight="700" fill="#3a2717" text-anchor="middle" letter-spacing=".1em">CAM</text>
+
+  <!-- divider under pos -->
+  <line x1="28" y1="121" x2="68" y2="121" stroke="#3a2717" stroke-width=".5" opacity=".35"/>
+
+  <!-- India flag -->
+  <g transform="translate(33,128)">
+    <rect width="30" height="6.5" rx="1.5" fill="#FF9933"/>
+    <rect y="6.5" width="30" height="6.5" fill="#FFFFFF"/>
+    <rect y="13" width="30" height="6.5" rx="1.5" fill="#138808"/>
+    <circle cx="15" cy="9.75" r="2.8" fill="none" stroke="#000080" stroke-width=".45"/>
+  </g>
+
+  <!-- divider under flag -->
+  <line x1="28" y1="155" x2="68" y2="155" stroke="#3a2717" stroke-width=".5" opacity=".35"/>
+
+  <!-- top language -->
+  <text x="48" y="172" class="vn" font-size="12" font-weight="600" fill="#3a2717" text-anchor="middle" opacity=".65">Java</text>
+
+  <!-- ── NAME ── -->
+  <line x1="48" y1="238" x2="272" y2="238" stroke="#3a2717" stroke-width=".5" opacity=".3"/>
+  <text x="160" y="268" class="vb" font-size="34" font-weight="900" fill="#3a2717" text-anchor="middle" letter-spacing=".14em">SAH</text>
+  <line x1="48" y1="278" x2="272" y2="278" stroke="#3a2717" stroke-width=".5" opacity=".3"/>
+
+  <!-- ── STATS ── -->
+  <!-- left col -->
+  <text x="80" y="310" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">54</text>
+  <text x="86" y="310" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">PAC</text>
+
+  <text x="80" y="338" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">45</text>
+  <text x="86" y="338" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">SHO</text>
+
+  <text x="80" y="366" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">61</text>
+  <text x="86" y="366" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">PAS</text>
+
+  <!-- right col -->
+  <text x="212" y="310" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">81</text>
+  <text x="218" y="310" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">DRI</text>
+
+  <text x="212" y="338" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">32</text>
+  <text x="218" y="338" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">DEF</text>
+
+  <text x="212" y="366" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">70</text>
+  <text x="218" y="366" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">PHY</text>
+
+  <!-- center divider -->
+  <line x1="160" y1="293" x2="160" y2="372" stroke="#3a2717" stroke-width=".4" opacity=".2"/>
+
+  <!-- row dividers -->
+  <line x1="55" y1="317" x2="133" y2="317" stroke="#3a2717" stroke-width=".25" opacity=".13"/>
+  <line x1="55" y1="345" x2="133" y2="345" stroke="#3a2717" stroke-width=".25" opacity=".13"/>
+  <line x1="187" y1="317" x2="262" y2="317" stroke="#3a2717" stroke-width=".25" opacity=".13"/>
+  <line x1="187" y1="345" x2="262" y2="345" stroke="#3a2717" stroke-width=".25" opacity=".13"/>
+
+  <!-- ── FOOTER ── -->
+  <line x1="38" y1="394" x2="282" y2="394" stroke="#3a2717" stroke-width=".3" opacity=".18"/>
+
+  <text x="38" y="416" class="vn" font-size="9" font-weight="700" fill="#3a2717" letter-spacing=".14em" opacity=".45">POWERED BY GITHUB</text>
+  <text x="282" y="416" class="vn" font-size="9" font-weight="700" fill="#3a2717" text-anchor="end" letter-spacing=".14em" opacity=".45">@Anandisah07</text>
+
+  <!-- tier label -->
+  <text x="160" y="440" class="vn pul" font-size="11" font-weight="800" fill="#F0CFA8" text-anchor="middle" letter-spacing=".22em" opacity=".55">BRONZE</text>
+</svg>

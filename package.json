@@ -1,0 +1,9 @@
+{
+  "name": "github-profile-readme",
+  "version": "1.0.0",
+  "description": "FIFA/GitFut-style GitHub Profile README — auto-updated via GitHub Actions",
+  "private": true,
+  "scripts": {
+    "generate": "node scripts/generate-readme.js"
+  }
+}
