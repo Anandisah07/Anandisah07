@@ -53,7 +53,7 @@
 
   <!-- ── OVR panel ── -->
   <ellipse cx="48" cy="75" rx="34" ry="34" fill="url(#og)" opacity=".5"/>
-  <text x="48" y="90" class="vb" font-size="50" font-weight="900" fill="#3a2717" text-anchor="middle">56</text>
+  <text x="48" y="90" class="vb" font-size="50" font-weight="900" fill="#3a2717" text-anchor="middle">57</text>
   <text x="48" y="113" class="vn" font-size="19" font-weight="700" fill="#3a2717" text-anchor="middle" letter-spacing=".1em">CAM</text>
 
   <!-- divider under pos -->

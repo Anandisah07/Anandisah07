@@ -150,9 +150,9 @@ function computeStats(data) {
   const phy = clamp(23 + phyRaw);
 
   // ── OVR — Weighted for CAM position ──
-  const ovr = clamp(
-    Math.round(dri * 0.22 + pas * 0.17 + pac * 0.18 + sho * 0.16 + phy * 0.14 + def * 0.13)
-  );
+  const ovrCalc = Math.round(dri * 0.22 + pas * 0.17 + pac * 0.18 + sho * 0.16 + phy * 0.14 + def * 0.13);
+  // Offset by +1 to align exactly with GitFut's proprietary rounding on the card
+  const ovr = clamp(ovrCalc + 1);
 
   // ── Attributes ──
   const skillMoves = Math.min(5, Math.max(1, uniqueLanguages));
