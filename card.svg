@@ -53,7 +53,7 @@
 
   <!-- ── OVR panel ── -->
   <ellipse cx="48" cy="75" rx="34" ry="34" fill="url(#og)" opacity=".5"/>
-  <text x="48" y="90" class="vb" font-size="50" font-weight="900" fill="#3a2717" text-anchor="middle">57</text>
+  <text x="48" y="90" class="vb" font-size="50" font-weight="900" fill="#3a2717" text-anchor="middle">56</text>
   <text x="48" y="113" class="vn" font-size="19" font-weight="700" fill="#3a2717" text-anchor="middle" letter-spacing=".1em">CAM</text>
 
   <!-- divider under pos -->
@@ -80,7 +80,7 @@
 
   <!-- ── STATS ── -->
   <!-- left col -->
-  <text x="80" y="310" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">57</text>
+  <text x="80" y="310" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">55</text>
   <text x="86" y="310" class="vn" font-size="18" font-weight="500" fill="#3a2717" letter-spacing=".05em" opacity=".65">PAC</text>
 
   <text x="80" y="338" class="vb" font-size="22" font-weight="800" fill="#3a2717" text-anchor="end">48</text>
