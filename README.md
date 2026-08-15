@@ -63,7 +63,7 @@
 | 👥 **Followers** | `2` |
 | 🗣️ **Languages** | `4` |
 | 🔨 **Contributions** | `81` |
-| 🗓️ **Account Age** | `2.2 yrs` |
+| 🗓️ **Account Age** | `2.3 yrs` |
 | ⚡ **Active Days** | `5` |
 | 📂 **Repositories** | `23` |
 
