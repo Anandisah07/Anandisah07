@@ -4,12 +4,12 @@
 <!-- ⚽ ANIMATED HEADER — CINEMATIC INTRO                       -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a3a1a,100:39D353&height=220&section=header&text=ANANDI%20SAH&fontSize=52&fontColor=F0CFA8&fontAlignY=35&desc=55%20OVR%20%C2%B7%20CAM%20%C2%B7%20FANTASISTA%20%C2%B7%20ONE%20TO%20WATCH%20%F0%9F%8C%9F&descSize=16&descColor=8b949e&descAlignY=55&animation=fadeIn" width="100%" alt="Header"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:1a3a1a,100:39D353&height=220&section=header&text=ANANDI%20SAH&fontSize=52&fontColor=F0CFA8&fontAlignY=35&desc=56%20OVR%20%C2%B7%20CAM%20%C2%B7%20FANTASISTA%20%C2%B7%20ONE%20TO%20WATCH%20%F0%9F%8C%9F&descSize=16&descColor=8b949e&descAlignY=55&animation=fadeIn" width="100%" alt="Header"/>
 
 <br/>
 
 <!-- ⚽ TYPING ANIMATION -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=600&height=40&lines=%E2%9A%BD+THE+MAGICIAN+%7C+POLYGLOT+DEVELOPER;4+LANGUAGES+%C2%B7+23+REPOS+%C2%B7+BUILDING+%F0%9F%94%A5;JAVASCRIPT%20%7C%20HTML%20%7C%20JAVA%20%7C%20PYTHON" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=600&height=40&lines=%E2%9A%BD+THE+MAGICIAN+%7C+POLYGLOT+DEVELOPER;4+LANGUAGES+%C2%B7+24+REPOS+%C2%B7+BUILDING+%F0%9F%94%A5;JAVASCRIPT%20%7C%20HTML%20%7C%20JAVA%20%7C%20PYTHON" alt="Typing SVG" />
 
 <br/><br/>
 
@@ -62,10 +62,10 @@
 | 💻 **Commits** | `0` |
 | 👥 **Followers** | `2` |
 | 🗣️ **Languages** | `4` |
-| 🔨 **Contributions** | `81` |
+| 🔨 **Contributions** | `84` |
 | 🗓️ **Account Age** | `2.3 yrs` |
 | ⚡ **Active Days** | `5` |
-| 📂 **Repositories** | `23` |
+| 📂 **Repositories** | `24` |
 
 </td>
 </tr>
@@ -84,7 +84,7 @@
 
 <img src="https://img.shields.io/badge/TOP_10%25-of_GitHub-39D353?style=flat-square&labelColor=0d1117" alt="Top 10%"/>
 &nbsp;
-<img src="https://img.shields.io/badge/OVR_55-active_devs-F0CFA8?style=flat-square&labelColor=0d1117" alt="OVR"/>
+<img src="https://img.shields.io/badge/OVR_56-active_devs-F0CFA8?style=flat-square&labelColor=0d1117" alt="OVR"/>
 
 </div>
 
