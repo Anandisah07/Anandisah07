@@ -9,7 +9,7 @@
 <br/>
 
 <!-- ⚽ TYPING ANIMATION -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=600&height=40&lines=%E2%9A%BD+THE+MAGICIAN+%7C+POLYGLOT+DEVELOPER;5+LANGUAGES+%C2%B7+24+REPOS+%C2%B7+BUILDING+%F0%9F%94%A5;JAVASCRIPT%20%7C%20HTML%20%7C%20JAVA%20%7C%20JUPYTER%20NOTEBOOK%20%7C%20PYTHON" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=22&duration=3000&pause=1000&color=39D353&center=true&vCenter=true&width=600&height=40&lines=%E2%9A%BD+THE+MAGICIAN+%7C+POLYGLOT+DEVELOPER;5+LANGUAGES+%C2%B7+25+REPOS+%C2%B7+BUILDING+%F0%9F%94%A5;JAVASCRIPT%20%7C%20HTML%20%7C%20JAVA%20%7C%20JUPYTER%20NOTEBOOK%20%7C%20PYTHON" alt="Typing SVG" />
 
 <br/><br/>
 
@@ -62,10 +62,10 @@
 | 💻 **Commits** | `0` |
 | 👥 **Followers** | `2` |
 | 🗣️ **Languages** | `5` |
-| 🔨 **Contributions** | `84` |
+| 🔨 **Contributions** | `87` |
 | 🗓️ **Account Age** | `2.4 yrs` |
 | ⚡ **Active Days** | `5` |
-| 📂 **Repositories** | `24` |
+| 📂 **Repositories** | `25` |
 
 </td>
 </tr>
