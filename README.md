@@ -60,7 +60,7 @@
 | Metric | Value |
 |:---|---:|
 | 💻 **Commits** | `0` |
-| 👥 **Followers** | `2` |
+| 👥 **Followers** | `3` |
 | 🗣️ **Languages** | `5` |
 | 🔨 **Contributions** | `87` |
 | 🗓️ **Account Age** | `2.4 yrs` |
